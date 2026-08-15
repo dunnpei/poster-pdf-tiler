@@ -51,59 +51,6 @@ function drawCutMarksAndLabels(
     }
   }
 
-  // Draw solid corner cut marks
-  ctx.setLineDash([]);
-  ctx.lineWidth = Math.max(2, width * 0.003);
-  ctx.strokeStyle = '#2563eb'; // Brand Blue
-  const markLen = Math.min(width, height) * 0.04;
-  const margin = Math.min(width, height) * 0.01;
-
-  // Top-Left corner
-  ctx.beginPath();
-  ctx.moveTo(margin, margin + markLen);
-  ctx.lineTo(margin, margin);
-  ctx.lineTo(margin + markLen, margin);
-  ctx.stroke();
-
-  // Top-Right corner
-  ctx.beginPath();
-  ctx.moveTo(width - margin - markLen, margin);
-  ctx.lineTo(width - margin, margin);
-  ctx.lineTo(width - margin, margin + markLen);
-  ctx.stroke();
-
-  // Bottom-Left corner
-  ctx.beginPath();
-  ctx.moveTo(margin, height - margin - markLen);
-  ctx.lineTo(margin, height - margin);
-  ctx.lineTo(margin + markLen, height - margin);
-  ctx.stroke();
-
-  // Bottom-Right corner
-  ctx.beginPath();
-  ctx.moveTo(width - margin - markLen, height - margin);
-  ctx.lineTo(width - margin, height - margin);
-  ctx.lineTo(width - margin, height - margin - markLen);
-  ctx.stroke();
-
-  // Page label badge at bottom margin
-  const fontSize = Math.max(12, Math.round(height * 0.018));
-  ctx.font = `bold ${fontSize}px sans-serif`;
-  const labelText = `[ ${tile.label} ] - 重疊邊緣: ${config.overlapMm}mm - 海報列印拼貼頁`;
-  const textWidth = ctx.measureText(labelText).width;
-  
-  const badgeX = margin * 2;
-  const badgeY = height - margin * 2;
-  
-  // Background pill
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-  ctx.fillRect(badgeX - 6, badgeY - fontSize, textWidth + 12, fontSize + 8);
-  ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)';
-  ctx.strokeRect(badgeX - 6, badgeY - fontSize, textWidth + 12, fontSize + 8);
-
-  ctx.fillStyle = '#0f172a';
-  ctx.fillText(labelText, badgeX, badgeY);
-
   ctx.restore();
 }
 

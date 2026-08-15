@@ -261,7 +261,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
       <label className="flex items-center justify-between cursor-pointer rounded-xl bg-slate-800/40 p-3.5 border border-slate-800 hover:bg-slate-800/80 transition-all">
         <div className="flex items-center space-x-2.5">
           <Scissors className="h-4 w-4 text-amber-400" />
-          <span className="text-xs font-semibold text-slate-200">繪製裁切對齊線 (Cut Marks)</span>
+          <span className="text-xs font-semibold text-slate-200">繪製重疊對齊虛線 (Cut Marks)</span>
         </div>
         <input
           type="checkbox"
